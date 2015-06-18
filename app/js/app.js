@@ -1,6 +1,6 @@
 (function () {
     var app;
-
+   
     window.Books = {
         data: new kendo.data.DataSource({
             transport: {
@@ -15,16 +15,19 @@
         }
     }),
         back: function() {
+            app.navigate("#:back");
         },
         settings: function() {
+            app.navigate("view/settings.html");
         }
     };
 
     document.addEventListener("deviceready", function () {  
         navigator.splashscreen.hide();
 
-        app = new kendo.mobile.Application(document.body);
+        app = new kendo.mobile.Application(document.body,{layout: "main-layout", transition: "zoom"} );
     }, false);
-
+        
     window.app = app;
+
 }());
